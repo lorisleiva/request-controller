@@ -9,7 +9,8 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 
 class RequestController extends FormRequest
 {
-    use DispatchesJobs, ValidatesRequests;
+    use DispatchesJobs;
+    use ValidatesRequests;
 
     /** @var array */
     protected $middleware = [];
@@ -30,8 +31,10 @@ class RequestController extends FormRequest
             : [];
 
         return $factory->make(
-            $this->validationData(), $rules,
-            $this->messages(), $this->attributes()
+            $this->validationData(),
+            $rules,
+            $this->messages(),
+            $this->attributes()
         );
     }
 
