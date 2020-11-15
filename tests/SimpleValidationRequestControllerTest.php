@@ -37,4 +37,17 @@ class SimpleValidationRequestControllerTest extends TestCase
                 'bar' => 'The bar must be an integer.',
             ]);
     }
+
+    /** @test */
+    public function it_revalidates_at_each_call()
+    {
+        $this->postJson('/', ['authorized' => false])
+            ->assertStatus(403);
+
+        $this->postJson('/', ['foo' => 'some text'])
+            ->assertStatus(200);
+
+        $this->postJson('/', ['bar' => 'some text'])
+            ->assertStatus(422);
+    }
 }

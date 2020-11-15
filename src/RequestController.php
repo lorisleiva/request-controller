@@ -47,4 +47,36 @@ class RequestController extends FormRequest
             ];
         }, $this->middleware);
     }
+
+    public function callAction($method, $parameters)
+    {
+        static::createFrom(request(), $this);
+        $this->validator = null;
+        $this->resolveValidation();
+
+
+        return $this->{$method}(...array_values($parameters));
+    }
+
+    public function validateResolved()
+    {
+        //
+    }
+
+    protected function resolveValidation()
+    {
+        $this->prepareForValidation();
+
+        if (! $this->passesAuthorization()) {
+            $this->failedAuthorization();
+        }
+
+        $instance = $this->getValidatorInstance();
+
+        if ($instance->fails()) {
+            $this->failedValidation($instance);
+        }
+
+        $this->passedValidation();
+    }
 }
