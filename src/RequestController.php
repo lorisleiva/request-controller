@@ -3,15 +3,10 @@
 namespace Lorisleiva\RequestController;
 
 use Illuminate\Contracts\Validation\Factory as ValidationFactory;
-use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Foundation\Validation\ValidatesRequests;
 
 class RequestController extends FormRequest
 {
-    use DispatchesJobs;
-    use ValidatesRequests;
-
     /** @var array */
     protected $middleware = [];
 
