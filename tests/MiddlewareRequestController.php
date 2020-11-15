@@ -17,7 +17,7 @@ class MiddlewareRequestController extends RequestController
                 }
 
                 return $next($request);
-            }
+            },
         ];
     }
 
