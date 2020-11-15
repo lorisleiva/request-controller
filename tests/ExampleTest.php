@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Skeleton\Tests;
+namespace Lorisleiva\RequestController\Tests;
 
 class ExampleTest extends TestCase
 {

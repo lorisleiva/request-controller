@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\Skeleton\Commands;
+namespace Lorisleiva\RequestController\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class RequestControllerCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'request-controller';
 
     public $description = 'My command';
 
