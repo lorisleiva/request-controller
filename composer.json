@@ -26,8 +26,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Lorisleiva\\RequestController\\": "src",
-            "Lorisleiva\\RequestController\\Database\\Factories\\": "database/factories"
+            "Lorisleiva\\RequestController\\": "src"
         }
     },
     "autoload-dev": {
@@ -42,16 +41,6 @@
     },
     "config": {
         "sort-packages": true
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Lorisleiva\\RequestController\\RequestControllerServiceProvider"
-            ],
-            "aliases": {
-                "RequestController": "Lorisleiva\\RequestController\\RequestControllerFacade"
-            }
-        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
