@@ -50,10 +50,7 @@ class RequestController extends FormRequest
 
     public function callAction($method, $parameters)
     {
-        static::createFrom(request(), $this);
-        $this->validator = null;
-        $this->resolveValidation();
-
+        $this->refreshRequestAndValidate();
 
         return $this->{$method}(...array_values($parameters));
     }
@@ -63,20 +60,10 @@ class RequestController extends FormRequest
         //
     }
 
-    protected function resolveValidation()
+    protected function refreshRequestAndValidate()
     {
-        $this->prepareForValidation();
-
-        if (! $this->passesAuthorization()) {
-            $this->failedAuthorization();
-        }
-
-        $instance = $this->getValidatorInstance();
-
-        if ($instance->fails()) {
-            $this->failedValidation($instance);
-        }
-
-        $this->passedValidation();
+        $this->validator = null;
+        static::createFrom(request(), $this);
+        parent::validateResolved();
     }
 }
