@@ -4,4 +4,5 @@ namespace Lorisleiva\RequestController;
 
 class RequestController
 {
+    //
 }
