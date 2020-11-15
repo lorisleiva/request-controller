@@ -7,8 +7,10 @@ use PHPUnit\Framework\TestCase as PHPUnit;
 
 class SimpleValidationRequestController extends RequestController
 {
-    public function authorize()
+    public function authorize(SomeInjectedService $service)
     {
+        PHPUnit::assertTrue($service instanceof SomeInjectedService);
+
         return $this->get('authorized', true);
     }
 
