@@ -6,7 +6,7 @@
 
 Aren't you tired of having to create a `FormRequest` class for almost every invokable `Controller` you create?
 
-It turns out, with a few tweaks, you can use a `FormRequest` class as a controller.
+It turns out, [with a few tweaks](https://lorisleiva.com/if-formrequests-and-invokable-controllers-had-a-baby/), you can use a `FormRequest` class as a controller.
 
 This package provides only one class: a `RequestController` class that extends the `FormRequest` class we all know and adapt it slightly so it works as an invokable `Controller`.
 
